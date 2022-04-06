@@ -11,4 +11,10 @@ data class PokemonEntity(
     val name: String,
     @SerializedName("weight")
     val weight: Int
-)
+) {
+    val heightInMetre: Float
+        get() = height.toFloat() / 10
+
+    val weightInKilogram: Float
+        get() = weight.toFloat() / 10
+}

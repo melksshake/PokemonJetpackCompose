@@ -16,6 +16,8 @@ fun PokemonListScreen(
     viewModel: PokemonsListViewModel,
     navController: NavController
 ) {
+    val pokemonList = viewModel.pokemonsList
+
     Column(modifier = Modifier.fillMaxSize()) {
         TopBarView(
             title = InitialListDataType.POKEMON.name,
@@ -23,7 +25,7 @@ fun PokemonListScreen(
             onButtonClicked = null
         )
 
-        PaginatedList(viewModel.pokemonsList) {
+        PaginatedList(pokemonList) {
             navController.navigate(getPokemonDetailRoute(it))
         }
     }

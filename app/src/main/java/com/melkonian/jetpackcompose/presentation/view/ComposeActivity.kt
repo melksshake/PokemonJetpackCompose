@@ -12,6 +12,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.melkonian.jetpackcompose.domain.entity.InitialListDataType
+import com.melkonian.jetpackcompose.presentation.route.POKEMON_DETAIL
+import com.melkonian.jetpackcompose.presentation.viewmodel.PokemonDetailedViewModel
 import com.melkonian.jetpackcompose.presentation.viewmodel.PokemonsListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -45,16 +47,16 @@ class ComposeActivity : AppCompatActivity() {
                 val viewModel = hiltViewModel<PokemonsListViewModel>()
                 PokemonListScreen(viewModel, navController)
             }
-//            composable(POKEMON_DETAIL) { backStackEntry ->
-//                backStackEntry.arguments?.getString("url")?.let {
-//                    val viewModel = hiltViewModel<PokemonDetailViewModel>()
-//                    PokemonDetailScreen(
-//                        viewModel = viewModel,
-//                        navController = navController,
-//                        url = it,
-//                    )
-//                }
-//            }
+            composable(POKEMON_DETAIL) { backStackEntry ->
+                backStackEntry.arguments?.getString("url")?.let {
+                    val viewModel = hiltViewModel<PokemonDetailedViewModel>()
+                    PokemonDetailedScreen(
+                        viewModel = viewModel,
+                        navController = navController,
+                        url = it,
+                    )
+                }
+            }
         }
     }
 }
