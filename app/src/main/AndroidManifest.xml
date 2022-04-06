@@ -3,6 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.melkonian.jetpackcompose">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".JetpackComposeApp"
         android:allowBackup="true"
@@ -13,7 +15,7 @@
         android:theme="@style/Theme.JetpackCompose">
 
         <activity
-            android:name=".presentation.ComposeActivity"
+            android:name=".presentation.view.ComposeActivity"
             android:exported="true"
             android:theme="@style/Theme.JetpackCompose">
 
